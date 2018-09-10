@@ -200,7 +200,7 @@ You will not be able to call this action from a business process, nor will it be
     <displayheight>30</displayheight>
     <font family="Segoe UI" size="10" style="Regular" color="000000" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">C:\Users\baldernorseDR1\Desktop\Image.png</initialvalue>
+    <initialvalue xml:space="preserve">C:\Users\Desktop\Image.png</initialvalue>
     <private />
     <alwaysinit />
   </stage>
