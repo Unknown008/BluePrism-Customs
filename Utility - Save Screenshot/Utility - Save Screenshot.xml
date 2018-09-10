@@ -1,0 +1,531 @@
+﻿<process name="Utility - Save Screenshot" version="1.0" bpversion="6.3.0.6190" narrative="Some image tools&#xD;&#xA;Created by https://github.com/Unknown008/BluePrism-Customs" byrefcollection="true" type="object" runmode="Exclusive" preferredid="c60f52e4-5827-412a-b0b2-8b7c82a5549b">
+  <appdef>
+    <element name="Application Root">
+      <id>f5fcc11a-4688-4c70-8641-f23c4b824367</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="de56471a-1c75-42d2-aa0e-8c50159afd68" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="cab15071-d750-4540-8e1e-094b285a410c" type="Normal" published="True">
+    <name>Save Screenshot from Clipboard to File</name>
+    <view>
+      <camerax>-18</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8d8d483d-da18-4e3a-a132-907278bd2864" type="Normal" published="True">
+    <name>Image to Clipboard</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="eb3d7ac4-8cc6-4e61-a283-c752fead788a" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>2d35904d-978b-4ce9-bcbc-e7ec9689c343</onsuccess>
+  </stage>
+  <stage stageid="2d35904d-978b-4ce9-bcbc-e7ec9689c343" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="f6e27dbd-93ee-41da-ac64-b268592f9768" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>System.Windows.Forms.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Windows.Forms</import>
+      <import>System.Windows</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="a752e193-0703-4095-9d8c-9612310945bd" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>de56471a-1c75-42d2-aa0e-8c50159afd68</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="88275189-d288-4174-8975-69195f17406f" name="Start" type="Start">
+    <subsheetid>de56471a-1c75-42d2-aa0e-8c50159afd68</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>758eaa26-249e-4a35-aaf3-01452dfd2862</onsuccess>
+  </stage>
+  <stage stageid="758eaa26-249e-4a35-aaf3-01452dfd2862" name="End" type="End">
+    <subsheetid>de56471a-1c75-42d2-aa0e-8c50159afd68</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="c03cda90-167a-4353-88e7-bd06cb7ea828" name="Note1" type="Note">
+    <subsheetid>de56471a-1c75-42d2-aa0e-8c50159afd68</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="83159585-00cb-4499-806f-07978b7f712a" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3edfacbb-9976-499f-a948-ae4340457a3e" name="Save Screenshot from Clipboard to File" type="SubSheetInfo">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>Save a screenshot from Clipboard (Copy/Global Send Keys {PRSC}) to a File (provide full file path with file name e.g. C:\users\user\Desktop\Image.png)</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="09466e08-c56b-437a-a490-a544e100d65d" name="Start" type="Start">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="Have the image in the clipboard" />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Filename" narrative="File path and file name (e.g. C:\users\user\Desktop\Image.png)" stage="Filename" />
+    </inputs>
+    <onsuccess>d7668afe-59d7-4abe-9096-8a7979c40a0a</onsuccess>
+  </stage>
+  <stage stageid="e96ef45d-c257-4573-bcea-0d79a24e0c74" name="End" type="End">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+      <output type="text" name="Message" stage="Message" />
+    </outputs>
+  </stage>
+  <stage stageid="90b24809-cd5d-4e8a-a262-84538ef2d42e" name="Filename" type="Data">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-285</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\baldernorseDR1\Desktop\Image.png</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d7668afe-59d7-4abe-9096-8a7979c40a0a" name="Save Screenshot to File" type="Code">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Filename" expr="[Filename]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+    </outputs>
+    <onsuccess>e96ef45d-c257-4573-bcea-0d79a24e0c74</onsuccess>
+    <code><![CDATA[try 
+{
+	Image image = Clipboard.GetImage();
+	image.Save(Filename);
+	Success = true;
+}
+catch(Exception ex)
+{
+	Success = false;
+	throw ex;
+}]]></code>
+  </stage>
+  <stage stageid="2f58785c-ab4e-430d-87f7-63c5ef55873e" name="Success" type="Data">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-285</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b231738c-2df5-4947-9025-e11fd71036d3" name="Recover1" type="Recover">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>7b81bb3f-fc19-44bb-9b7d-0713cc80eff9</onsuccess>
+  </stage>
+  <stage stageid="7b81bb3f-fc19-44bb-9b7d-0713cc80eff9" name="Exceptions" type="MultipleCalculation">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>6a0d8e68-8649-441e-9f4c-714004ae62cb</onsuccess>
+    <steps>
+      <calculation expression="ExceptionType()" stage="Exception Type" />
+      <calculation expression="ExceptionDetail()" stage="Exception Detail" />
+    </steps>
+  </stage>
+  <stage stageid="6a0d8e68-8649-441e-9f4c-714004ae62cb" name="Resume1" type="Resume">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>195</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>f1a7e248-a603-42b9-a193-dbeb700416a1</onsuccess>
+  </stage>
+  <stage stageid="1ccc46d5-4383-4329-9630-5b4018e5b7a7" name="Error" type="Block">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>165</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="a9709665-a111-4f51-ad6b-8e05b3af1b16" name="Exception Detail" type="Data">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5e80c790-7230-489c-8263-a2913e7f96ea" name="Exception Type" type="Data">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f1a7e248-a603-42b9-a193-dbeb700416a1" name="Clipboard is not image?" type="Decision">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[Exception Detail]=&quot;Could not execute code stage because exception thrown by code stage: Object reference not set to an instance of an object.&quot;" />
+    <ontrue>0a401ec8-0812-4712-bf13-1df7598ef1fa</ontrue>
+    <onfalse>132ebcc7-f725-41f0-a19b-deb30fe94d98</onfalse>
+  </stage>
+  <stage stageid="0a401ec8-0812-4712-bf13-1df7598ef1fa" name="Message" type="Calculation">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>836463d7-a2dd-4d0b-abb7-a1cfe9cc8c8c</onsuccess>
+    <calculation expression="&quot;An error occurred - No image was found in the Clipboard.&quot;" stage="Message" />
+  </stage>
+  <stage stageid="2deba00c-3289-4ffb-86c6-41da080cf4b5" name="Message" type="Data">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-285</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="132ebcc7-f725-41f0-a19b-deb30fe94d98" name="Message" type="Calculation">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>270</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>667f6dc6-a9a5-4971-8a85-cf87e772132d</onsuccess>
+    <calculation expression="&quot;An unknown error occurred - &quot;&amp;[Exception Detail]" stage="Message" />
+  </stage>
+  <stage stageid="836463d7-a2dd-4d0b-abb7-a1cfe9cc8c8c" name="Anchor1" type="Anchor">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>60</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>e96ef45d-c257-4573-bcea-0d79a24e0c74</onsuccess>
+  </stage>
+  <stage stageid="667f6dc6-a9a5-4971-8a85-cf87e772132d" name="Anchor1" type="Anchor">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>270</displayx>
+    <displayy>60</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>836463d7-a2dd-4d0b-abb7-a1cfe9cc8c8c</onsuccess>
+  </stage>
+  <stage stageid="23d2d640-d0ec-462b-b0b1-55b3698e46ef" name="Input" type="Block">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-330</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="008000" />
+  </stage>
+  <stage stageid="f1c163f9-ae1a-41a4-bde5-d9f1a6dd3a23" name="Exceptions" type="Block">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="f9cfc574-b7ed-43d6-8f47-25c62b8992f0" name="Output" type="Block">
+    <subsheetid>cab15071-d750-4540-8e1e-094b285a410c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-330</displayx>
+    <displayy>30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="339966" />
+  </stage>
+  <stage stageid="8ab32d42-4211-4c80-92d7-d6f610f290b5" name="Image to Clipboard" type="SubSheetInfo">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="92e80a5d-2832-48d6-86fb-e14dfab8f5fc" name="Start" type="Start">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="image" name="Image" stage="Image" />
+    </inputs>
+    <onsuccess>710397a3-c457-4520-a85a-ef959b5fafdb</onsuccess>
+  </stage>
+  <stage stageid="77455924-3e90-418d-a54b-7e454832c8ee" name="End" type="End">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="710397a3-c457-4520-a85a-ef959b5fafdb" name="Save to Clipboard" type="Code">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="image" name="Img" expr="[Image]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+    </outputs>
+    <onsuccess>77455924-3e90-418d-a54b-7e454832c8ee</onsuccess>
+    <code><![CDATA[try
+{
+    Clipboard.SetImage(Img);
+	Success = true;
+}
+catch
+{
+	Success = false;
+}]]></code>
+  </stage>
+  <stage stageid="ec5c60ad-b832-4bc0-995d-86a6302e88eb" name="Image" type="Data">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>image</datatype>
+    <initialvalue>32,32,137224,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGklEQVRIS+3BAQ0AAADCoPdP7WYOIAAAgKsBDCAAATYiCq0AAAAASUVORK5CYII=</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e7407b19-b48f-462d-9c97-a3aba70f8341" name="Success" type="Data">
+    <subsheetid>8d8d483d-da18-4e3a-a132-907278bd2864</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
