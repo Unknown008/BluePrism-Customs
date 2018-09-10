@@ -1,0 +1,495 @@
+﻿<process name="Utility - Regex" version="1.0" bpversion="6.3.0.6190" narrative="Various actions that use Regex, better than those in Utility - Strings!&#xD;&#xA;Created by https://github.com/Unknown008/BluePrism-Customs" byrefcollection="true" type="object" runmode="Exclusive" preferredid="045c8af0-4000-4d7b-a540-939c28a555cd">
+  <appdef>
+    <element name="Application Root">
+      <id>04f97512-fa65-4c50-a99d-5dd2a3fd34e3</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="cbe99501-26f8-4766-9e68-25f5669bf165" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="20e6ed77-3805-4fbf-b4bd-0c6e4b74408d" type="Normal" published="True">
+    <name>Regex - Match</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="0bd7b18a-15be-454a-abce-1653d2a312ad" type="Normal" published="True">
+    <name>Regex - Replace</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="f25634d0-e038-4387-8235-e60bdd9666d7" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>9fa2bcce-0efd-4010-8158-f14caa473a0e</onsuccess>
+  </stage>
+  <stage stageid="9fa2bcce-0efd-4010-8158-f14caa473a0e" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a95d528f-94ff-4ed9-a2ef-6b4c28cda1ac" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Text.RegularExpressions</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="1c8982e8-a7aa-41df-9fbd-c7f1dde945d2" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>cbe99501-26f8-4766-9e68-25f5669bf165</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="dbd084aa-fe79-4af9-95f1-fc942eea7cd2" name="Start" type="Start">
+    <subsheetid>cbe99501-26f8-4766-9e68-25f5669bf165</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>4f5de2e8-c403-405b-9403-212fa8aca3a7</onsuccess>
+  </stage>
+  <stage stageid="4f5de2e8-c403-405b-9403-212fa8aca3a7" name="End" type="End">
+    <subsheetid>cbe99501-26f8-4766-9e68-25f5669bf165</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ccd5ad07-a314-496f-b227-1262af428bca" name="Regex - Match" type="SubSheetInfo">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>Inputs
+Pattern - Regex pattern
+Text - Text against which pattern will be matched against
+
+Outputs
+Success - true or false
+Results - full match
+Sub results - any sub matches</narrative>
+    <displayx>-165</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>210</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="6b7e6929-df63-45c6-b001-4770074f1230" name="Start" type="Start">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Pattern" narrative="The regular expression pattern" stage="Pattern" />
+      <input type="text" name="Text" narrative="The text against which the pattern will be matched" stage="Text" />
+    </inputs>
+    <onsuccess>3fdef59e-dedb-44cd-9510-bb7ad2875735</onsuccess>
+  </stage>
+  <stage stageid="cba1d17c-4d5a-4cb6-84c6-4240d8d11aa1" name="End" type="End">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Results" stage="Results" />
+      <output type="collection" name="Sub Results" stage="Sub Results" />
+      <output type="flag" name="Success?" stage="Success" />
+    </outputs>
+  </stage>
+  <stage stageid="835c3038-a07f-4500-8c3e-8edf27e71219" name="Note1" type="Note">
+    <subsheetid>cbe99501-26f8-4766-9e68-25f5669bf165</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="07f9c885-29a8-4f25-b93b-f25e19539ce9" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="9540d1f0-6e48-41d3-9da4-3e0da6ad0952" name="Regex - Replace" type="SubSheetInfo">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>Inputs
+Pattern - Regex pattern
+Text - Text against which pattern will be matched against
+Replacement - Text with which match(es) will be replaced
+
+Outputs
+Success - true or false
+Results - full match</narrative>
+    <displayx>-255</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>240</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="c7ea3a36-d0c7-4f05-8e8f-f20dca1f6c9f" name="Start" type="Start">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text" stage="Text" />
+      <input type="text" name="Pattern" stage="Pattern" />
+      <input type="text" name="Replace" stage="Replace" />
+    </inputs>
+    <onsuccess>cd39c28e-a1fc-4ed9-9946-a0499cbbb12e</onsuccess>
+  </stage>
+  <stage stageid="20b828b2-ddb6-4e72-861a-9274cdb3ebf1" name="End" type="End">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+      <output type="text" name="Results" stage="Results" />
+    </outputs>
+  </stage>
+  <stage stageid="bdbb8b6d-34dd-4278-a422-2de71917bba4" name="Pattern" type="Data">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">\\([^\\]+)\\[^\\]+$</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5faf7bff-868b-4fcd-8666-b3fe5a2111b6" name="Text" type="Data">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>100-200
+56 to 99
+400 - 600</narrative>
+    <displayx>-225</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\vr559th\Desktop\RPA - Assurance Audit\Locked Returns\Bank\Investec\BA320.XLS</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8a1ebf8f-aab4-4f13-83e6-f18190f67f9a" name="Results" type="Collection">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3fdef59e-dedb-44cd-9510-bb7ad2875735" name="Match" type="Code">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="text" expr="[Text]" />
+      <input type="text" name="pattern" expr="[Pattern]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="results" stage="Results" />
+      <output type="flag" name="success" stage="Success" />
+      <output type="collection" name="subresults" stage="Sub Results" />
+    </outputs>
+    <onsuccess>cba1d17c-4d5a-4cb6-84c6-4240d8d11aa1</onsuccess>
+    <code><![CDATA[DataTable table = new DataTable();
+DataColumn column;
+DataRow row;
+column = new DataColumn();
+column.DataType = Type.GetType("System.String");
+column.ColumnName = "Match";
+table.Columns.Add(column);
+results = table;
+
+DataTable subtable = new DataTable();
+DataRow subrow;
+subresults = subtable;
+
+var subtable_created = false;
+
+var reg = new Regex(pattern);
+
+var varnames = reg.GetGroupNames();
+
+Match test = reg.Match(text);
+if (test.Success)
+{
+	success = true;
+	var match = reg.Matches(text);
+	foreach (Match m in match) 
+	{
+		row = table.NewRow();
+		row["Match"] = m.Groups[0].Value;
+		table.Rows.Add(row);
+		int sub = m.Groups.Count;
+		if (sub > 1)
+		{
+			if (!subtable_created)
+			{
+				subtable_created = true;
+				foreach (string i in varnames)
+				{
+					if (i == "0") continue;
+					subtable.Columns.Add(i, typeof(string));
+				}
+			}
+			subrow = subtable.NewRow();
+			foreach (string i in varnames)
+			{
+				if (i == "0") continue;
+				subrow[i] = m.Groups[i].Value;
+			}
+			subtable.Rows.Add(subrow);
+		}
+	}
+	table.Dispose();
+	subtable.Dispose();
+} 
+else
+{
+	success = false;
+}]]></code>
+  </stage>
+  <stage stageid="6fab561a-e606-48f3-9818-5002653c8a9a" name="Success" type="Data">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4fc019fe-27eb-421b-b086-58dfdcb03eff" name="Sub Results" type="Collection">
+    <subsheetid>20e6ed77-3805-4fbf-b4bd-0c6e4b74408d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c969c510-ee9f-4735-a4bc-a2beaf5e5fbc" name="Text" type="Data">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">abcde</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4ae1aa63-c392-4821-8ab1-b774acc30161" name="Pattern" type="Data">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">bc</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cd39c28e-a1fc-4ed9-9946-a0499cbbb12e" name="Replace" type="Code">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="pattern" expr="[Pattern]" />
+      <input type="text" name="text" expr="[Text]" />
+      <input type="text" name="replace" expr="[Replace]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="results" stage="Results" />
+      <output type="flag" name="success" stage="Success" />
+    </outputs>
+    <onsuccess>20b828b2-ddb6-4e72-861a-9274cdb3ebf1</onsuccess>
+    <code><![CDATA[var regex = new Regex(pattern);
+try
+{
+	results = regex.Replace(text, replace);
+	success = true;
+}
+catch
+{
+	results = "";
+	success = false;
+}
+]]></code>
+  </stage>
+  <stage stageid="90165582-ad97-458f-a4e5-a1276932e4cf" name="Success" type="Data">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1c74c34f-7cb8-4c32-a97b-5140c8adadd0" name="Results" type="Data">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="db184f8b-7917-49f3-9296-183adf873026" name="Replace" type="Data">
+    <subsheetid>0bd7b18a-15be-454a-abce-1653d2a312ad</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">12</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
